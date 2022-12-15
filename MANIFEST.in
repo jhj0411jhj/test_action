@@ -1,0 +1,6 @@
+recursive-exclude docs *
+recursive-exclude test *
+recursive-include requirements *.txt
+recursive-include my_package *.txt *.rst
+recursive-include my_package *.html *.js *.css *.woff *.woff2 *.json *.jpg
+global-include py.typed

@@ -1,0 +1,75 @@
+#!/usr/bin/env python
+# This source code is licensed under the MIT license found in the
+# LICENSE file in the root directory of this source tree.
+
+import os
+import sys
+from setuptools import find_packages, setup
+# from my_package import version, package_name
+version = '0.0.1'
+package_name = 'my_package'
+# todo: dynamically get version number
+
+# Minimum required python version
+min_python_version = (3, 7)
+
+# Check for python version
+if sys.version_info < min_python_version:
+    error = f"Your version of python ({sys.version_info}) is too old. You need python >= {min_python_version}."
+    sys.exit(error)
+
+# Assign root dir location for later use
+root_dir = os.path.dirname(__file__)
+
+
+def read_requirements_file(filename):
+    """Read in requirements file and return items as list of strings"""
+    with open(os.path.join(root_dir, filename), "r") as f:
+        dependencies = [line.strip() for line in f.readlines() if not line.startswith("#")]
+    return dependencies
+
+
+# Read in the requirements from the requirements.txt file
+install_requires = read_requirements_file("requirements.txt")
+
+# Requirements for testing, formatting, and docs generation
+test_requires = ["pytest>=6.0", "pytest-cov"]
+format_requires = []
+docs_requires = read_requirements_file("docs/requirements.txt")
+
+# Dev is testing + formatting + docs generation
+dev_requires = test_requires + format_requires + docs_requires
+
+# read in README.md as the long description
+with open(os.path.join(root_dir, "README.md"), "r", encoding='utf-8') as f:
+    long_description = f.read()
+
+
+setup(
+    name=package_name,
+    version=version,
+    description="A Test Package",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    author="JHJ",
+    author_email="jianghuaijun@pku.edu.cn",
+    url="https://github.com/jhj0411jhj/test_action",
+    project_urls={
+        "Github Action Page": "https://github.com/jhj0411jhj/test_action/actions",
+    },
+    license="MIT",
+    platforms=["Linux", "Windows", "macOS"],
+    python_requires=">=" + ".".join(map(str, min_python_version)),
+    packages=find_packages(),
+    include_package_data=True,
+    install_requires=install_requires,
+    extras_require={
+        "dev": dev_requires,
+        "test": test_requires,
+    },
+    entry_points={
+        "console_scripts": [
+            "my-script = my_package.__main__:main",
+        ]
+    }
+)

@@ -7,7 +7,7 @@ except ModuleNotFoundError as e:
     import os, sys
     sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from my_package import color_logger as logger
+from my_package import logger
 
 
 def test_logger():
