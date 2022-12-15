@@ -1,12 +1,4 @@
 import logging
-
-try:
-    import my_package
-except ModuleNotFoundError as e:
-    print('my_package is not installed. Use the local code instead.')
-    import os, sys
-    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
 from my_package import logger
 
 

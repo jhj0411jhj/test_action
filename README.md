@@ -16,8 +16,11 @@ Tutorial:
 
 Commands:
 ```bash
+python -m pip install --upgrade pip, setuptools, build, twine
+
 # Build
 python -m build --sdist --wheel
+# For quick build, you may use --no-isolation option.
 
 # Check
 tar tf dist/*.tar.gz
