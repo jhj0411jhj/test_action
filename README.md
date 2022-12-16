@@ -1,6 +1,8 @@
 # test_action
 
 [![GitHub Actions Demo](https://github.com/jhj0411jhj/test_action/actions/workflows/github-actions-demo.yml/badge.svg)](https://github.com/jhj0411jhj/test_action/actions/workflows/github-actions-demo.yml)
+[![Test](https://github.com/jhj0411jhj/test_action/actions/workflows/test.yml/badge.svg)](https://github.com/jhj0411jhj/test_action/actions/workflows/test.yml)
+[![Version](https://img.shields.io/github/v/release/jhj0411jhj/test_action.svg)](https://github.com/jhj0411jhj/test_action/releases)
 
 This is a repo for testing Github Actions.
 
