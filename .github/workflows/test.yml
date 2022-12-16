@@ -1,0 +1,48 @@
+# https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Test
+
+on:
+  push:
+    branches:
+    - master
+
+  pull_request:
+    branches:
+    - master
+
+  workflow_dispatch:
+
+env:
+  extra-requires: "[test]"
+  test-dir: test
+  pytest-args: >-
+    -rap
+
+# todo: Lint with flake8
+# todo: install extra requirements
+# todo: tests conda
+# todo: coverage
+jobs:
+
+  tests-pip:
+    name: Tests (pip, Python ${{ matrix.python-version }}, ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["ubuntu-latest", "macos-latest", "windows-latest"]
+        python-version: ["3.7", "3.8", "3.9", "3.10"]
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install ".${{ env.extra-requires }}"
+    - name: Run tests
+      run: |
+        pytest ${{ env.pytest-args }} ${{ env.test-dir }}
