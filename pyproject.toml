@@ -82,6 +82,7 @@ version = {attr = "my_package.version"}
 dependencies = {file = "requirements/main.txt"}
 
 [tool.setuptools.dynamic.optional-dependencies]
+extra = {file = "requirements/extra.txt"}           # pip install .[extra]
 test = {file = "requirements/dev/test.txt"}         # pip install .[test]
 docs = {file = "requirements/dev/docs.txt"}         # pip install .[docs]
 format = {file = "requirements/dev/format.txt"}     # pip install .[format]

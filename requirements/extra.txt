@@ -1,0 +1,2 @@
+ConfigSpace>=0.4.20
+pyrfr
