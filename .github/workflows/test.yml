@@ -5,11 +5,13 @@ name: Test
 on:
   push:
     branches:
-    - master
+      - master
+    tags:
+      - *
 
   pull_request:
     branches:
-    - master
+      - master
 
   workflow_dispatch:
 
