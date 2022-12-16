@@ -14,6 +14,9 @@ Tutorial:
 * https://packaging.python.org/en/latest/tutorials/packaging-projects/
 * https://setuptools.pypa.io/en/latest/userguide/quickstart.html
 
+**Caution:** In this repo, package will be uploaded to TestPyPI 
+by GitHub Actions triggered by publishing a release.
+
 Commands:
 ```bash
 python -m pip install --upgrade pip, setuptools, build, twine
@@ -27,8 +30,11 @@ tar tf dist/*.tar.gz
 unzip -l dist/*.whl
 twine check dist/*
 
-# Upload
-twine upload --repository testpypi dist/*
+
+# Caution: In this repo, package will be uploaded to TestPyPI 
+#          by GitHub Actions triggered by publishing a release.
+# Manually upload
+# twine upload --repository testpypi dist/*
 
 # Install
 pip install -i https://test.pypi.org/simple/ ${package_name}
