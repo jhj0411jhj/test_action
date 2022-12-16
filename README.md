@@ -50,6 +50,8 @@ Documentation: https://docs.pytest.org/
 
 See [.github/workflows](.github/workflows).
 
-Tutorial: https://docs.github.com/en/actions/quickstart
+Tutorial:
+* https://docs.github.com/en/actions/quickstart
+* https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
 End of README.md
