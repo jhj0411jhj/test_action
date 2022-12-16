@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
 
 env:
-  extra-requires: "[test]"
+  extra-requires: "[test,extra]"
   test-dir: test
   pytest-args: >-
     -rap
