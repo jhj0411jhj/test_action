@@ -62,6 +62,13 @@ jobs:
       - name: Build package (source distribution and wheel)
         run: |
           python -m build --sdist --wheel
+      - name: Show package contents
+        run: |
+          ls -alh dist
+          echo "========== .tar.gz =========="
+          tar tf dist/*.tar.gz
+          echo "========== .whl =========="
+          unzip -l dist/*.whl
       - name: Verify package
         run: |
           twine check dist/* --strict
