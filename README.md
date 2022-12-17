@@ -21,7 +21,7 @@ by GitHub Actions triggered by publishing a release.
 
 Commands:
 ```bash
-python -m pip install --upgrade pip, setuptools, build, twine
+python -m pip install --upgrade pip setuptools build twine
 
 # Build
 python -m build --sdist --wheel
@@ -30,7 +30,7 @@ python -m build --sdist --wheel
 # Check
 tar tf dist/*.tar.gz
 unzip -l dist/*.whl
-twine check dist/*
+twine check dist/* --strict
 
 
 # Caution: In this repo, package will be uploaded to TestPyPI 
