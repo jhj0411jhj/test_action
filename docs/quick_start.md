@@ -1,5 +1,7 @@
 # Quick Start
 
+This is an example doc.
+
 This tutorial helps you run your first example with **OpenBox**.
 
 ## Space Definition
